@@ -1,0 +1,12 @@
+[
+    {
+        "name": "folarin",
+        "age":10,
+        "profession": "sicherheit"
+    },
+    {
+        "name": "flucent-Dev",
+        "age":2,
+        "profession": "software-developer"
+    }
+]
