@@ -1,12 +1,93 @@
 [
     {
-        "name": "folarin",
-        "age":10,
-        "profession": "sicherheit"
+
+        "id": 1,
+        "question": "Wer steht an der Spitze der Organisationsstruktur des Bundesministeriums der Finanzen?",
+        "a":"Kanzler",
+        "b": "Bundesminister der Finanzen",
+        "c": "Präsident des Bundestages",
+        "d": "Bundesminister des Innern",
+        "answer": "b"
     },
     {
-        "name": "flucent-Dev",
-        "age":2,
-        "profession": "software-developer"
+        "id": 2,
+        "question": "Welches Referat ist im Bundesministerium der Finanzen für die nationale und internationale Finanzmarktpolitik zuständig?",
+        "a":"Abteilung I",
+        "b": "Abteilung II",
+        "c": "Abteilung III",
+        "d": "Abteilung IV",
+        "answer": "c"
+    },
+    {
+        "id": 3,
+        "question": "Was ist die Hauptverantwortung der Abteilung IV im Bundesministerium der Finanzen?",
+        "a":"Zoll und Verbrauchsteuern",
+        "b": "Besteuerung",
+        "c": "Bundeshaushalt",
+        "d": "Internationale Finanzbeziehungen",
+        "answer": "b"
+    },
+    {
+        "id": 4,
+        "question": "Welche Abteilung verwaltet den Bundeshaushalt und die Finanzplanung im Bundesministerium der Finanzen?",
+        "a": "Abteilung I",
+        "b": "Abteilung II",
+        "c": "Abteilung III",
+        "d": "Abteilung V",
+        "answer": "b"
+    },
+    {
+        "id": 5,
+        "question": "Wer unterstützt den Bundesminister der Finanzen typischerweise bei der Leitung der Ministeriumsoperationen?",
+        "a": "Staatssekretäre",
+        "b": "Finanzvorstände",
+        "c": "Parlamentarische Staatssekretäre",
+        "d": "Bundeskanzler",
+        "answer": "a"
+    },
+    {
+        "id": 6,
+        "question": "Welche Abteilung im Bundesministerium der Finanzen ist für Zoll- und Verbrauchsteuern zuständig?",
+        "a": "Abteilung I",
+        "b": "Abteilung II",
+        "c": "Abteilung III",
+        "d": "Abteilung IV",
+        "answer": "d"
+    },
+    {
+        "id": 7,
+        "question": "Welche Rolle spielt die Abteilung V im Bundesministerium der Finanzen?",
+        "a": "Verwaltet den Bundeshaushalt",
+        "b": "Beaufsichtigt die Finanzmarktpolitik",
+        "c": "Verantwortet die europäische Finanz- und Wirtschaftspolitik",
+        "d": "Verwaltet Zoll- und Verbrauchsteuern",
+        "answer": "c"
+    },
+    {
+        "id": 8,
+        "question": "Welche Abteilung im Bundesministerium der Finanzen ist für die Öffentlichkeitsarbeit und Kommunikation des Ministeriums zuständig?",
+        "a": "Büro des Finanzvorstands",
+        "b": "Presse- und Kommunikationsstelle",
+        "c": "Büro des Staatssekretärs",
+        "d": "Rechtsabteilung",
+        "answer": "b"
+    },
+    {
+        "id": 9,
+        "question": "Wer ist die Parlamentarische Staatssekretärin im Bundesministerium der Finanzen?",
+        "a": "Bettina Stark-Watzinger",
+        "b": "Katja Hessel",
+        "c": "Florian Toncar",
+        "d": "Werner Gatzer",
+        "answer": "b"
+    },
+    {
+        "id": 10,
+        "question": "Wer ist der aktuelle Bundesminister der Finanzen?",
+        "a": "Olaf Scholz",
+        "b": "Christian Lindner",
+        "c": "Wolfgang Schäuble",
+        "d": "Angela Merkel",
+        "answer": "b"
     }
 ]
