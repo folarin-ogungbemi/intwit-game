@@ -29,6 +29,22 @@ fetch('assets/data/data.json')
                                 liEl.setAttribute('data-show', 'true');
                             }
                         });
+
+                        const ulElements = divElement.querySelectorAll('ul');
+                        let lis_array = []
+                        ulElements.forEach(ul => 
+                            {
+                                const lis = Array.from(ul.querySelectorAll('li'))
+                                lis_array = lis_array.concat(lis);
+                            });
+                        lis_array.forEach(function(elem) {
+                           elem.addEventListener('click', function(e) {
+                                if (elem.dataset.show === 'true'){
+                                    console.log(elem);
+                                }
+                            
+                           }) 
+                        });
                 });
             })
             .catch(error => {console.log("Error fetching data!: ", error)});
