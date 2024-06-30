@@ -40,7 +40,7 @@ fetch('assets/data/data.json')
                         lis_array.forEach(function(elem) {
                            elem.addEventListener('click', function(e) {
                                 if (elem.dataset.show === 'true'){
-                                    console.log(elem);
+                                    alert(`Richtig! \n${elem.innerText}`);
                                 }
                             
                            }) 
@@ -50,7 +50,3 @@ fetch('assets/data/data.json')
             .catch(error => {console.log("Error fetching data!: ", error)});
             }
         })
-
-const handleSelectEvent = () => {
-    
-}
