@@ -10,17 +10,31 @@ fetch('assets/data/data.json')
                 data.map(
                     (item, index) => {
                         const divElement = document.createElement('div');
+                        
                         divElement.innerHTML = `
                         <p><span>${index+1}.</span> ${item.question}</p>
-                        <ul class="list-items">
-                            <li><span>A.</span> ${item.a}</li>
-                            <li><span>B.</span> ${item.b}</li>
-                            <li><span>C.</span> ${item.c}</li>
-                            <li><span>D.</span> ${item.d}</li>
+                        <ul class="list-items" id="${item.id}">
+                            <li id="${item.id}a"><span>A.</span> ${item.a}</li>
+                            <li id="${item.id}b"><span>B.</span> ${item.b}</li>
+                            <li id="${item.id}c"><span>C.</span> ${item.c}</li>
+                            <li id="${item.id}d"><span>D.</span> ${item.d}</li>
                         </ul>`;
                         mainContent.appendChild(divElement);
+
+                        const itemKeys = Object.keys(item)
+
+                        itemKeys.forEach(element => {
+                            if (element === item.answer){
+                                const liEl = document.getElementById(`${item.id}${element}`);
+                                liEl.setAttribute('data-show', 'true');
+                            }
+                        });
                 });
             })
             .catch(error => {console.log("Error fetching data!: ", error)});
             }
         })
+
+const handleSelectEvent = () => {
+    
+}
