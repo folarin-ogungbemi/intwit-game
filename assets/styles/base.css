@@ -14,3 +14,13 @@ footer {
 main {
     padding: 20px;
 }
+
+/* .slide{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+} */
+
+.slide[data-active="true"]{
+    opacity: 1;
+}
