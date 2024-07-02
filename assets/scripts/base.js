@@ -16,76 +16,99 @@ const fetchData = async (url) => {
     }
 }
 
-class QuestionBank {
-    constructor(score=0) {
-        this.score = score;
-    }
+document.addEventListener('DOMContentLoaded', ()=>{
+    // The main cointainer
+    const mainContent = document.getElementsByTagName('main')[0];
+    // Fetching data from API
+    fetchData(BASE_URL)
+        .then(data => {
+            data.map(
+                (item, index) => {
+                    const divElement = document.createElement('div');
+                    
+                    divElement.innerHTML = `
+                    <div id="${item.id}" class="slide">
+                        <p><span>${index+1}.</span> ${item.question}</p>
+                        <ul class="list-items">
+                            <li data-answer="false" id="${item.id}a"><span>A.</span> ${item.a}</li>
+                            <li data-answer="false" id="${item.id}b"><span>B.</span> ${item.b}</li>
+                            <li data-answer="false" id="${item.id}c"><span>C.</span> ${item.c}</li>
+                            <li data-answer="false" id="${item.id}d"><span>D.</span> ${item.d}</li>
+                        </ul>
+                    </div>`;
+                    mainContent.appendChild(divElement);
 
-    incrementScore(score){
-        this.score += score;
-    }
-
-    startgame(amount) {
-        
-    }
-    endgame(amount) {
-        
-    }
-}
-
-fetchData(BASE_URL)
-    .then(data => {
-        const mainContent = document.getElementsByTagName('main')[0];
-        data.map(
-            (item, index) => {
-                const divElement = document.createElement('div');
-                
-                divElement.innerHTML = `
-                <div id="${item.id}" class="slide">
-                    <p><span>${index+1}.</span> ${item.question}</p>
-                    <ul class="list-items">
-                        <li id="${item.id}a"><span>A.</span> ${item.a}</li>
-                        <li id="${item.id}b"><span>B.</span> ${item.b}</li>
-                        <li id="${item.id}c"><span>C.</span> ${item.c}</li>
-                        <li id="${item.id}d"><span>D.</span> ${item.d}</li>
-                    </ul>
-                </div>`;
-                mainContent.appendChild(divElement);
-
-                // Identify the option with the right answer and set an attribute to show
-                const itemKeys = Object.keys(item)
-                itemKeys.forEach(element => {
-                    if (element === item.answer){
-                        const liEl = document.getElementById(`${item.id}${element}`);
-                        liEl.setAttribute('data-show', 'true');
-                    }
-                });
-
-                const ulElements = divElement.querySelectorAll('ul');
-                let lis_array = []
-                ulElements.forEach(ul => 
-                    {
-                        const lis = Array.from(ul.querySelectorAll('li'))
-                        lis_array = lis_array.concat(lis);
+                    // Identify the option with the right answer and set the data attribute
+                    const itemKeys = Object.keys(item)
+                    itemKeys.forEach(element => {
+                        if (element === item.answer){
+                            const liEl = document.getElementById(`${item.id}${element}`);
+                            liEl.setAttribute('data-answer', 'true');
+                        }
                     });
-                // Compare user event with the right answer.
-                lis_array.forEach(function(elem) {
-                   elem.addEventListener('click', function(e) {
-                        if (elem.dataset.show === 'true'){
-                            alert(`Richtig! \n${elem.innerText}`);
-                        }
-                        else{
-                            alert('Wrong!');
-                        }
-                   }) 
-                });
+            });
 
-                // 
-                // allSlides = divElement.getElementsByClassName('slide').item(0);
-                // allSlides.setAttribute('data-active', 'true');
-                // allSlides.setAttribute('data-active', 'true');
-                // console.log(allSlides);
-        });
-            }).catch(error => {
-        console.log('Error Occured: ', error)
+            class QuestionBank {
+                allQuestions = Array.from(document.getElementsByClassName('slide'));
+                
+                constructor(start=false, score=0, currentIndex=0, currentQuestion=[]) {
+                    this.start = start;
+                    this.score = score;
+                    this.currentIndex = currentIndex;
+                    this.currentQuestion = currentQuestion;
+                }
+
+                incrementScore(){
+                    this.score += 5;
+                }
+
+                question(next) {
+                    const totalQuestions = this.allQuestions.length;
+                    if (next) {
+                        this.allQuestions[this.currentIndex].setAttribute('data-active', 'false');
+                        this.currentIndex = (this.currentIndex + 1) % totalQuestions;
+                        game.currentQuestion = game.allQuestions[this.currentIndex];
+                        game.currentQuestion.setAttribute('data-active', 'true');
+                        this.userChoice()
+                    }else{
+                        game.currentQuestion = game.allQuestions[this.currentIndex];
+                        game.currentQuestion.setAttribute('data-active', 'true');
+                    }
+                    return game.currentQuestion;
+                }
+
+                userChoice(){
+                    const gameElementsArray = Array.from(game.currentQuestion.querySelectorAll('li'))
+                    gameElementsArray.forEach(function(element) {
+                        element.addEventListener('click', function(e) {
+                            if (element.dataset.answer === 'true'){
+                                game.question(true)
+                                alert(`Richtig! \n${element.innerText}`);
+                                game.incrementScore();
+                                console.log(game.score);
+                            }
+                            else{
+                                alert('Falsch!');
+                            }
+                        }) 
+                    });
+                }
+                startgame() {
+                    this.start = true
+                    this.question();
+                    this.userChoice()
+                }
+
+            }
+            const game = new QuestionBank();
+            game.startgame()
+                }).catch(error => {
+            console.log('Error Occured: ', error)
     })
+});
+
+// shuffleArray(array) {
+// for (let i = array.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [array[i], array[j]] = [array[j], array[i]];
+// }
