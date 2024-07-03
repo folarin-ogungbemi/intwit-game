@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     const divElement = document.createElement('div');
                     
                     divElement.innerHTML = `
-                    <div id="${item.id}" class="slide">
+                    <div id="${item.id}" class="slide element">
                         <p><span>${index+1}.</span> ${item.question}</p>
                         <ul class="list-items">
                             <li data-answer="false" id="${item.id}a"><span>A.</span> ${item.a}</li>

@@ -11,17 +11,50 @@ footer {
     padding: 10px;
 }
 
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-header{
+    font-size: 1.5rem;
+}
+
+.navbar-nav{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar-nav-item{
+    list-style: none;
+}
+
+.navbar-nav-item-link{
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-nav-item-link:hover{
+    text-decoration: underline;
+    color: aqua;
+}
+
 main {
     padding: 20px;
     z-index: 9999;
     position: relative;
 }
 
-.slide{
+.element{
     position: absolute;
-    inset: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide{
     opacity: 0;
-    
 }
 
 .slide[data-active="true"]{
