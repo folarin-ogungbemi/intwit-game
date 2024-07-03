@@ -11,6 +11,7 @@ footer {
     padding: 10px;
 }
 
+/* Navbar ***/
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -39,6 +40,20 @@ footer {
     text-decoration: underline;
     color: aqua;
 }
+
+/* Board **/
+#board{
+    background: #acacac;
+    color: #333;
+    display: flex;
+    padding: 10px;
+}
+
+.d-none{
+    opacity: 0;
+}
+
+/** Main **/
 
 main {
     padding: 20px;
