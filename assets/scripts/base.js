@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
             class QuestionBank {
                 allQuestions = Array.from(document.getElementsByClassName('slide'));
+                userScore = document.getElementById('score');
                 
                 constructor(start=false, score=0, currentIndex=0, currentQuestion=[]) {
                     this.start = start;
@@ -85,7 +86,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                                 game.question(true)
                                 alert(`Richtig! \n${element.innerText}`);
                                 game.incrementScore();
-                                console.log(game.score);
+                                game.userScore.innerText = game.score;
                             }
                             else{
                                 alert('Falsch!');
@@ -97,6 +98,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     this.start = true
                     this.question();
                     this.userChoice()
+                    game.userScore.innerText = game.score;
                 }
 
             }
