@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     const divElement = document.createElement('div');
                     
                     divElement.innerHTML = `
-                    <div id="${item.id}" class="slide element">
-                        <p><span>${index+1}.</span> ${item.question}</p>
+                    <div id="${item.id}" class="slide element gap-5">
+                        <p>${item.question}</p>
                         <ul class="list-items">
-                            <li data-answer="false" id="${item.id}a"><span>A.</span> ${item.a}</li>
-                            <li data-answer="false" id="${item.id}b"><span>B.</span> ${item.b}</li>
-                            <li data-answer="false" id="${item.id}c"><span>C.</span> ${item.c}</li>
-                            <li data-answer="false" id="${item.id}d"><span>D.</span> ${item.d}</li>
+                            <li data-answer="false" id="${item.id}a"><span>A</span> ${item.a}</li>
+                            <li data-answer="false" id="${item.id}b"><span>B</span> ${item.b}</li>
+                            <li data-answer="false" id="${item.id}c"><span>C</span> ${item.c}</li>
+                            <li data-answer="false" id="${item.id}d"><span>D</span> ${item.d}</li>
                         </ul>
                     </div>`;
                     mainContent.appendChild(divElement);

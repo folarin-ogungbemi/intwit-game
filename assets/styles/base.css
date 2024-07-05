@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html{
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 header,
@@ -9,6 +14,10 @@ footer {
     background-color: #333;
     color: white;
     padding: 10px;
+}
+
+h2{
+    font-size: 2rem;
 }
 
 /* Navbar ***/
@@ -41,16 +50,16 @@ footer {
     color: aqua;
 }
 
-/* Board **/
-#board{
-    background: #acacac;
-    color: #333;
-    display: flex;
-    padding: 10px;
-}
-
 .d-none{
     opacity: 0;
+}
+
+.mb-2{
+    margin-bottom: 0.6rem;
+}
+
+.underline{
+    text-decoration: underline;
 }
 
 /** Main **/
@@ -59,6 +68,8 @@ main {
     padding: 20px;
     z-index: 9999;
     position: relative;
+    background-color: #ffffff;
+    background-image: linear-gradient(146deg, #ffffff 0%, #a6e0d1 48%, #bbd2f0 87%);
 }
 
 .element{
@@ -66,6 +77,52 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 50vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.slide p {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: inset;
+    padding: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600px;
+}
+
+.slide li {
+    border: 1px solid #333;
+    padding: 0.8rem;
+    margin: 0.5rem;
+    list-style: none;
+    border-radius: 5rem;
+    
+}
+
+.element li span {
+    background-color: #333;
+    color: #fff;
+    padding: 0.3rem 0.5rem;
+    border-radius: 100%;
+    margin-right: 0.8rem;
+}
+
+.element-content{
+    display: flex;
+    flex-direction: column;
+}
+.element-content p{
+    font-size: 1.5rem
+}
+.gap-3{
+    gap: 1.5rem;
+}
+
+.gap-5{
+    gap: 3rem;
 }
 
 .slide{
@@ -75,4 +132,42 @@ main {
 .slide[data-active="true"]{
     opacity: 1;
     z-index: 9999;
+}
+
+.list-container{
+    display: flex;
+    gap: 2rem;
+}
+
+.list-container-item{
+    list-style: none;
+}
+
+.btn{
+    text-decoration: none;
+    border-radius: 5rem;
+    padding: 0.7rem 2rem;
+    font-size: 1.5rem;
+}
+
+.btn-pry{
+    background: #000;
+    border: 1px solid #000;
+    color: #fff;
+}
+
+.btn-sec{
+    background: #fff;
+    border: 1px solid #000;
+}
+
+@media screen and (max-width:600px) {
+    .element{
+        top: 0;
+        left: 0;
+        transform: none;
+        justify-content: start;
+        padding: 1rem;
+    }
+
 }

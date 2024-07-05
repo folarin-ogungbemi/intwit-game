@@ -1,10 +1,9 @@
 // Get the header and footer heights
 let headerHeight = document.querySelector('header').offsetHeight;
-let boardHeight = document.getElementById('board').offsetHeight;
 let footerHeight = document.querySelector('footer').offsetHeight;
 
 // Calculate total fixed height in pixels
-let totalFixedHeight = headerHeight + footerHeight + (boardHeight);
+let totalFixedHeight = headerHeight + footerHeight;
 
 // Calculate remaining height in vh
 let viewportHeight = window.innerHeight;
