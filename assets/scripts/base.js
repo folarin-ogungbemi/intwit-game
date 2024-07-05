@@ -83,13 +83,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
                     gameElementsArray.forEach(function(element) {
                         element.addEventListener('click', function(e) {
                             if (element.dataset.answer === 'true'){
-                                game.question(true)
-                                alert(`Richtig! \n${element.innerText}`);
+                                element.style.border = "1px solid green";
+                                element.style.backgroundColor = "green";
+                                element.style.color = "#fff";
                                 game.incrementScore();
                                 game.userScore.innerText = game.score;
+                                setTimeout(() => {
+                                    game.question(true)
+                                }, 2000);
                             }
-                            else{
-                                alert('Falsch!');
+                            if (element.dataset.answer === 'false'){
+                                element.style.border = "1px solid red";
+                                element.style.backgroundColor = "red";
+                                element.style.color = "#fff";
                             }
                         }) 
                     });
